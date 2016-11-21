@@ -51,6 +51,13 @@ Antes de usar o script lembre-se que é por sua conta e risco. Se não concorda 
 
 Changelog: 
 
+-- Versão 1.2 --
++ Adicionado Flash dos aparelhos
+  + Redmi Note 3 Kate (Snapdragon)
+  + Redmi Note 3 Kenzo (Snapdragon)
+  + Redmi Note 3 Hennessy (MTK)
+  
+
 -- Versão 1.1 --
 + Adicionado flash & unlock do aparelho Redmi Note 3 Kenzo (Snapdragon).
 
