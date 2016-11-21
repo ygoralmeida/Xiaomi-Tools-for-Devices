@@ -60,6 +60,9 @@ Changelog:
   + Flash do recovery TWRP (Mi 4C e Redmi Note 2)
 
 -- Agradecimentos especiais --
+
 Gabriel Elias (Facebook.com/gabriel.elias.56829) por disponibilizar seu Mi4C para testes.
+
+
 Facebook Xiaomi Brasil 2.0 (Facebook.com/groups/xiaomibrasil2) por fixar meu script na página inicial, além do apoio de todos que participam que abraçaram a ideia de uma forma bem legal, realmente, muito obrigado a todos vocês!
 
