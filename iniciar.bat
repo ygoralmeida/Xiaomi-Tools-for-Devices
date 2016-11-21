@@ -550,8 +550,8 @@ Echo  �                                                                    �
 Echo  읕컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴켸
 Echo.
 
-7za.exe -aoa e %rom%\Mi4C.tgz -o%firmware% >%logs%\7zip.txt 2>&1
-7za.exe -aoa e %firmware%\Mi4C.tar -o%firmware%\miui >%logs%\7zip.txt 2>&1
+7za.exe e %rom%\Mi4C.tgz -o%firmware% >%logs%\7zip.txt 2>&1
+7za.exe e %firmware%\Mi4C.tar -o%firmware%\miui >%logs%\7zip.txt 2>&1
 
 cls
 Echo.
