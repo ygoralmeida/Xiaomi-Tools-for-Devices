@@ -10,7 +10,7 @@ Cls
 Echo.
 Echo  зддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд©
 Echo  Ё                      Xiaomi Tools for Devices:                      Ё
-Echo  Ё Versфo: 1.1                                                         Ё
+Echo  Ё Versфo: 1.3                                                         Ё
 Echo  Ё Autor : Francisco Eduardo  @srfranciscomont                         Ё
 Echo  Ё Ajude realizando uma doa┤фo :) - https://goo.gl/ESm5aP              Ё
 Echo  Ё                                                                     Ё
@@ -98,7 +98,7 @@ Echo  здддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд©
 Echo  Ё                                                                    Ё
 Echo  Ё Selecione seu aparelho:                                            Ё
 Echo  Ё (1) Redmi Note 2 / Prime *MTK - Hermes*                            Ё
-Echo  Ё (2) Redmi Note 3 *MTK - Hennessy*                                   Ё
+Echo  Ё (2) Redmi Note 3 *MTK - Hennessy*                                  Ё
 Echo  Ё (3) Redmi Note 3 *Snapdragon - Kate (Special Edition)*             Ё
 Echo  Ё (4) Redmi Note 3 *Snapdragon - Kenzo*                              Ё
 Echo  Ё (5) Mi 4C *Snapdragon - Libra*                                     Ё
@@ -637,15 +637,16 @@ Echo.
 Echo  здддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд©
 Echo  Ё                                                                    Ё
 Echo  Ё Selecione seu aparelho:                                            Ё
-Echo  Ё (1) Redmi Note 3 *Snapdragon - Kenzo*                              Ё
-Echo  Ё (2) Mi 4C *Snapdragon - Libra*                                     Ё
-Echo  Ё                                                                    Ё
+Echo  Ё (1) Redmi Note 3 *Snapdragon - Kate (Special Edition)*             Ё
+Echo  Ё (2) Redmi Note 3 *Snapdragon - Kenzo*                              Ё
+Echo  Ё (3) Mi 4C *Snapdragon - Libra*                                     Ё
 Echo  Ё                                                                    Ё
 Echo  юдддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддды
 Echo.
 Set "Device="
 Set /p "Device=>"
 If "%Device%"=="1" (Goto RDN3K-unlock)
+If "%Device%"=="2" (Goto RDN3KE-unlock)
 If "%Device%"=="2" (Goto Mi4C-unlock)
 Goto Unlock
 
@@ -679,6 +680,98 @@ Pause>nul
 
 cd %~dp0fastboot
 fastboot oem unlock-go >%logs%\fastboot.txt 2>&1
+
+cls
+Echo  здддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд©
+Echo  Ё                                                                    Ё
+Echo  Ё                Coloque o aparelho em modo "Recovery"               Ё
+Echo  Ё                                                                    Ё
+Echo  Ё           (Desligue o aparelho e aperte Power + Vol UP)            Ё
+Echo  Ё                                                                    Ё
+Echo  Ё        Pressione qualquer tecla para voltar a tela inicial.        Ё
+Echo  Ё                                                                    Ё
+Echo  юдддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддды
+Echo.
+Pause>nul
+
+Goto MenuPrincipal
+
+:RDN3KE-unlock
+cd %~dp0
+set logs="%~dp0logs"
+
+cls
+Echo.
+Echo  здддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд©
+Echo  Ё                                                                    Ё
+Echo  Ё                Coloque o aparelho em modo "FASTBOOT"               Ё
+Echo  Ё                                                                    Ё
+Echo  Ё          (Desligue o aparelho e aperte Power + Vol Down)           Ё
+Echo  Ё                                                                    Ё
+Echo  Ё          Pressione qualquer tecla para iniciar o script.           Ё
+Echo  Ё                                                                    Ё
+Echo  юдддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддды
+Echo.
+Pause>nul
+
+cls
+Echo.
+Echo  здддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд©
+Echo  Ё                                                                    Ё
+Echo  Ё                       Realizando desbloqueio                       Ё
+Echo  Ё                                                                    Ё
+Echo  юдддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддды
+Echo.
+Pause>nul
+
+cd %~dp0fastboot
+fastboot oem unlock-go >%logs%\fastboot.txt 2>&1
+
+cls
+Echo  здддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд©
+Echo  Ё                                                                    Ё
+Echo  Ё                Coloque o aparelho em modo "Recovery"               Ё
+Echo  Ё                                                                    Ё
+Echo  Ё           (Desligue o aparelho e aperte Power + Vol UP)            Ё
+Echo  Ё                                                                    Ё
+Echo  Ё        Pressione qualquer tecla para voltar a tela inicial.        Ё
+Echo  Ё                                                                    Ё
+Echo  юдддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддды
+Echo.
+Pause>nul
+
+Goto MenuPrincipal
+
+:Mi4C-unlock
+cd %~dp0
+set logs="%~dp0logs"
+
+cls
+Echo.
+Echo  здддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд©
+Echo  Ё                                                                    Ё
+Echo  Ё                Coloque o aparelho em modo "FASTBOOT"               Ё
+Echo  Ё                                                                    Ё
+Echo  Ё          (Desligue o aparelho e aperte Power + Vol Down)           Ё
+Echo  Ё                                                                    Ё
+Echo  Ё          Pressione qualquer tecla para iniciar o script.           Ё
+Echo  Ё                                                                    Ё
+Echo  юдддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддды
+Echo.
+Pause>nul
+
+cls
+Echo.
+Echo  здддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд©
+Echo  Ё                                                                    Ё
+Echo  Ё                       Realizando desbloqueio                       Ё
+Echo  Ё                                                                    Ё
+Echo  юдддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддды
+Echo.
+Pause>nul
+
+cd %~dp0fastboot
+fastboot oem unlock >%logs%\fastboot.txt 2>&1
 
 cls
 Echo  здддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд©
