@@ -146,7 +146,7 @@ Echo  ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
 Echo  ³                                                                    ³
 Echo  ³                Coloque o aparelho em modo "FASTBOOT"               ³
 Echo  ³                                                                    ³
-Echo  ³          (Desligue o aparelho e aperte Power e Vol Down)           ³
+Echo  ³          (Desligue o aparelho e aperte Power + Vol Down)           ³
 Echo  ³                                                                    ³
 Echo  ³          Pressione qualquer tecla para iniciar o script.           ³
 Echo  ³                                                                    ³
@@ -237,7 +237,7 @@ Echo  ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
 Echo  ³                                                                    ³
 Echo  ³                Coloque o aparelho em modo "FASTBOOT"               ³
 Echo  ³                                                                    ³
-Echo  ³          (Desligue o aparelho e aperte Power e Vol Down)           ³
+Echo  ³          (Desligue o aparelho e aperte Power + Vol Down)           ³
 Echo  ³                                                                    ³
 Echo  ³          Pressione qualquer tecla para iniciar o script.           ³
 Echo  ³                                                                    ³
@@ -331,7 +331,7 @@ Echo  ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
 Echo  ³                                                                    ³
 Echo  ³                Coloque o aparelho em modo "FASTBOOT"               ³
 Echo  ³                                                                    ³
-Echo  ³          (Desligue o aparelho e aperte Power e Vol Down)           ³
+Echo  ³          (Desligue o aparelho e aperte Power + Vol Down)           ³
 Echo  ³                                                                    ³
 Echo  ³          Pressione qualquer tecla para iniciar o script.           ³
 Echo  ³                                                                    ³
@@ -355,7 +355,6 @@ Goto Bootloader
 
 :Bootloader
 cd %~dp0
-cd %~dp0fastboot
 set logs="%~dp0logs"
 
 cls
@@ -366,11 +365,12 @@ Echo  ³                                                                    ³
 Echo  ³  Device unlocked: false - Bloqueado                                ³
 Echo  ³  Device unlocked: true - Destravado                                ³
 Echo  ³                                                                    ³
-Echo  ³            Pressione qualquer tecla para seguir adiante.           ³
+Echo  ³        Pressione qualquer tecla para voltar a tela inicial.        ³
 Echo  ³                                                                    ³
 Echo  ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
 Echo.
 
+cd %~dp0fastboot
 fastboot oem device-info
 Pause>nul
 fastboot reboot
@@ -379,8 +379,8 @@ Goto MenuPrincipal
 
 :TWRP 
 cd %~dp0
-cd %~dp0fastboot
 set logs="%~dp0logs"
+set recovery="%~dp0recovery"
 
 cls
 Echo.
@@ -389,9 +389,62 @@ Echo  ³                              Aten‡Æo:                              ³
 Echo  ³                                                                    ³
 Echo  ³       Apenas para o aparelho Mi 4C. Em breve mais aparelhos.       ³
 Echo  ³                                                                    ³
-Echo  ³       Obs: link desativado. Em breve novo servidor. Sorry :s       ³
+Echo  ³          Pressione qualquer tecla para iniciar o script.           ³
 Echo  ³                                                                    ³
 Echo  ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
 Echo.
 Pause>nul
-Goto MenuPrincipal
+
+cls
+Echo.
+Echo  ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+Echo  ³                                                                    ³
+Echo  ³                        Realizando download.                        ³
+Echo  ³                                                                    ³
+Echo  ³                 Isso demora apenas alguns minutos!                 ³
+Echo  ³                  Aproveite para ir ao banheiro :D                  ³
+Echo  ³                                                                    ³
+Echo  ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+Echo.
+
+cd %~dp0util
+wget.exe --no-check-certificate -O %recovery%\recovery.zip https://github.com/franciscomont/Xiaomi-Tools-for-Devices/blob/master/recovery/recovery.zip?raw=true  >%logs%\wget.txt 2>&1
+
+Echo.
+Echo  ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+Echo  ³                                                                    ³
+Echo  ³                      Descompactando o recovery.                    ³
+Echo  ³                                                                    ³
+Echo  ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+Echo.
+
+7za.exe e %recovery%\recovery.zip -o%recovery% >%logs%\7zip.txt 2>&1
+
+cls
+Echo.
+Echo  ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+Echo  ³                                                                    ³
+Echo  ³                Coloque o aparelho em modo "FASTBOOT"               ³
+Echo  ³                                                                    ³
+Echo  ³          (Desligue o aparelho e aperte Power + Vol Down)           ³
+Echo  ³                                                                    ³
+Echo  ³          Pressione qualquer tecla para iniciar o script.           ³
+Echo  ³                                                                    ³
+Echo  ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+Echo.
+Pause>nul
+
+cd %~dp0fastboot
+fastboot flash recovery recovery.img >%logs%\fastboot.txt 2>&1
+
+Echo.
+Echo  ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+Echo  ³                                                                    ³
+Echo  ³                         Realizando limpeza.                        ³
+Echo  ³                                                                    ³
+Echo  ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+Echo.
+
+rd /s /q %recovery% >%logs%\limpeza.txt 2>&1
+
+Goto Bootloader
