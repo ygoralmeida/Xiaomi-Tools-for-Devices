@@ -51,6 +51,9 @@ Antes de usar o script lembre-se que é por sua conta e risco. Se não concorda 
 
 Changelog: 
 
+-- Versão 1.1 --
++ Adicionado flash & unlock do aparelho Redmi Note 3 Kenzo (Snapdragon).
+
 -- Versão 1.0 --
 + Meu primeiro dia de vida <3 (Obs: Quero bolo!)
 + Script re-criado com alguns ajuses
