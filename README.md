@@ -53,14 +53,14 @@ Changelog:
 
 -- Versão 1.3 --
 + Desbloqueio de bootloader dos seguinte aparelhos;
-  + Redmi Note 3 Kate (Snapdragon)
-  + Redmi Note 3 Kenzo (Snapdragon)
+  + Redmi Note 3 Pro Kate (Snapdragon)
+  + Redmi Note 3 Pro Kenzo (Snapdragon)
   + Redmi Note 3 Hennessy (MTK)
 
 -- Versão 1.2 --
 + Adicionado Flash dos aparelhos;
-  + Redmi Note 3 Kate (Snapdragon)
-  + Redmi Note 3 Kenzo (Snapdragon)
+  + Redmi Note 3 Pro Kate (Snapdragon)
+  + Redmi Note 3 Pro Kenzo (Snapdragon)
   + Redmi Note 3 Hennessy (MTK)
 
 -- Versão 1.1 --
@@ -72,7 +72,7 @@ Changelog:
 + Novas funcionalidades adicionadas:
   + Desbloqueio do bootloader do Mi 4C
   + Flash de Rom (Mi 4C e Redmi Note 2)
-  + Flash do recovery TWRP (Mi 4C e Redmi Note 2)
+  + Flash do recovery TWRP (Mi 4C e Redmi Note 2 / Redmi Note 2 Prime)
 
 -- Agradecimentos especiais --
 
