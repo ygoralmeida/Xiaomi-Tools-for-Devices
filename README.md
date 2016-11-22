@@ -51,6 +51,14 @@ Antes de usar o script lembre-se que é por sua conta e risco. Se não concorda 
 
 Changelog: 
 
+-- Versão 1.6 Stable -- 
+- Foi desativado a opção de desbloqueio de bootloader para os seguintes aparelhos; 
+  + Redmi Note 3 Pro Kate (Snapdragon)
+  + Redmi Note 3 Pro Kenzo (Snapdragon)
+  + Redmi Note 3 Hennessy (MTK)
++ Foram corrigidos diversos bugs, entre eles o log que não funcionava de forma adquadra. 
++ As ROM disponíveis para os aparelhos são Stable Global ou Stable Chinesa.  
+
 -- Versão 1.3 --
 + Desbloqueio de bootloader dos seguinte aparelhos;
   + Redmi Note 3 Pro Kate (Snapdragon)
